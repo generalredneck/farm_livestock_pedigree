@@ -1,0 +1,5 @@
+name = Farm Livestock Pedigree
+description = Features for displaying an animals lineage.
+core = 7.x
+package = farmOS
+dependencies[] = farm_livestock

@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * A FarmOS module that shows an animal's pedigree.
+ */
+
+function farm_livestock_pedigree_menu() {
+  $items = array();
+
+  // Farm asset uri for the view path.
+  $farm_asset_uri = 'farm/asset/%farm_asset';
+  $farm_asset_uri_argument_position = 2;
+
+  // Animal asset report tab.
+  $items[$farm_asset_uri . '/pedigree'] = array(
+    'title' => 'Pedigree',
+    'page callback' => 'farm_livestock_pedigree_individual_report',
+    'page arguments' => array($farm_asset_uri_argument_position),
+    'access callback' => 'farm_livestock_pedigree_individual_report_access',
+    'access arguments' => array($farm_asset_uri_argument_position),
+    'file' => 'farm_livestock_pedigree.report.inc',
+    'type' => MENU_LOCAL_TASK,
+    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+  );
+
+  return $items;
+}
+
+/**
+ * Individual report view access callback.
+ *
+ * @param $farm_asset
+ *   The asset to check access for.
+ *
+ * @return bool
+ *   Returns boolean value indicating whether or not access is granted.
+ */
+function farm_livestock_pedigree_individual_report_access($farm_asset) {
+
+  // If the asset is not an animal, deny access.
+  if ($farm_asset->type != 'animal') {
+    return FALSE;
+  }
+
+  // Finally, check to see if the user has access to the asset.
+  return farm_asset_access('view', $farm_asset);
+}

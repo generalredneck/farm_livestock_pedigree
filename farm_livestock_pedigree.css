@@ -1,0 +1,18 @@
+.farm-pedigree text {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.farm-pedigree .name {
+  font-weight: bold;
+}
+
+.farm-pedigree .about {
+  fill: #777;
+  font-size: smaller;
+}
+
+.farm-pedigree .link {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
