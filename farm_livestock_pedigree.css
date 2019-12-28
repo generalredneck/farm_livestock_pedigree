@@ -1,18 +1,27 @@
-.farm-pedigree text {
-  font-family: "Helvetica Neue", Helvetica, sans-serif;
+.farm-pedigree {
+  text-align: center;
 }
-
-.farm-pedigree .name {
-  font-weight: bold;
+.farm-pedigree svg {
+  margin-top: 5px;
+  border: 1px solid #aaa;
 }
-
-.farm-pedigree .about {
-  fill: #777;
-  font-size: smaller;
+.farm-pedigree .person rect {
+  fill: #fff;
+  stroke: grey;
+  stroke-width: 1px;
 }
-
+.farm-pedigree .person rect.male {
+  fill: #3EA9D9;
+}
+.farm-pedigree .person rect.female {
+  fill: #EC95FD;
+}
+.farm-pedigree .person {
+  font: 14px sans-serif;
+  cursor: pointer;
+}
 .farm-pedigree .link {
   fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
+  stroke: #ccc;
+  stroke-width: 1.5px;
 }
